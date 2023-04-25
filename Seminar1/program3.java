@@ -2,10 +2,12 @@
 /*
  * 3.Реализовать простой калькулятор
  */
+import java.io.IOException;
 import java.util.Scanner;
 
 public class program3 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         double num1;
         double num2;
         double res;
@@ -21,21 +23,35 @@ public class program3 {
         switch (operator) {
             case '+':
                 res = num1 + num2;
+                System.out.print("Результат равен:\n");
+                System.out.printf(num1 + " " + operator + " " + num2 + " = " + res);
+
                 break;
             case '-':
                 res = num1 - num2;
+                System.out.print("Результат равен:\n");
+                System.out.printf(num1 + " " + operator + " " + num2 + " = " + res);
+
                 break;
             case '*':
                 res = num1 * num2;
+                System.out.print("Результат равен:\n");
+                System.out.printf(num1 + " " + operator + " " + num2 + " = " + res);
+
                 break;
             case '/':
-                res = num1 / num2;
+                if (num2 != 0) {
+                    res = num1 / num2;
+                    System.out.print("Результат равен:\n");
+                    System.out.printf(num1 + " " + operator + " " + num2 + " = " + res);
+                } else {
+                    System.out.printf("На ноль делить нельзя");
+                }
                 break;
             default:
                 System.out.printf("Ошибка, такого оператора нет в списке");
                 return;
         }
-        System.out.print("Результат равен:\n");
-        System.out.printf(num1 + " " + operator + " " + num2 + " = " + res);
     }
+
 }
